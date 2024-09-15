@@ -1,0 +1,57 @@
+body{
+    display: flex; 
+    justify-content: center; /* Horizontally center */ 
+    align-items: center;    /* Vertically center */ 
+    height: 100vh;       
+    margin: 0;             /* Remove default margin */ 
+    font-family: 'Courier New', Courier, monospace;
+    background: url(/images/recipe.jpg) no-repeat center center / cover;
+}
+.signup{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px solid #ccc; 
+    background: rgb(236, 236, 230);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+label 
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+input{
+    padding: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid rgb(179, 169, 169);
+    border-radius: 5px;
+}
+.button {
+    display: block;
+    padding: 10px 20px;
+    background-color: rgb(131, 138, 89);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.button:hover {
+    background-color: rgb(47, 51, 28);
+}
+
+.login {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-top: 8px;
+    font-weight: bold;
+    color: black;
+}
