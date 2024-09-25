@@ -5,7 +5,9 @@ body{
     height: 100vh;       
     margin: 0;             
     font-family: 'Courier New', Courier, monospace;
-    background: url(/images/recipe.jpg) no-repeat center center / cover;
+    background: rgba(0, 0, 0, 0.7) url(/images/recipe.jpg) center center fixed;
+    background-size: cover;
+    background-blend-mode: darken;
 }
 .signup{
     padding-left: 100px;
