@@ -1,0 +1,63 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: rgba(0, 0, 0, 0.7) url(/images/2-recipe.jpg) center center fixed;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+    margin-top: 10px;
+}
+
+.container ul li{
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 15px;
+}
+.container h1{
+    cursor: pointer;
+    color:rgb(202, 227, 60);
+    margin-left: 10px;
+}
+.container ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+.signup, .login {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: rgb(156, 175, 45);
+    font-weight: bold;
+}
+.login:hover{
+    background-color:rgb(19, 21, 7);
+}
+.signup:hover{
+    background-color:rgb(19, 21, 7);
+}
+
+.content h1{
+    position: absolute;
+    margin-top: 16%;
+    margin-left: 32%;
+    color: #fff;
+}
+.content h1 i{
+    color: rgb(156, 175, 45);
+    font-weight: bold;
+    font-size: 3rem;
+}
+.content p{
+    color: #fff;
+    position: absolute;
+    margin-top: 19%;
+    margin-left:32%;
+    text-align: center;
+}
