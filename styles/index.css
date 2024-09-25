@@ -4,12 +4,15 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-body{
+body
+{
+    height: 100%;
     background: rgba(0, 0, 0, 0.7) url(/images/2-recipe.jpg) center center fixed;
     background-size: cover;
     background-blend-mode: darken;
 }
-.container{
+.container
+{
     display: flex;
     align-items: center;
     justify-content: space-between;    
@@ -43,21 +46,40 @@ body{
     background-color:rgb(19, 21, 7);
 }
 
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
 .content h1{
-    position: absolute;
-    margin-top: 16%;
-    margin-left: 32%;
     color: #fff;
+    font-size: 1.9rem;
 }
 .content h1 i{
-    color: rgb(156, 175, 45);
-    font-weight: bold;
-    font-size: 3rem;
+    color:rgb(202, 227, 60);
+    font-size: 4rem;
 }
+
 .content p{
     color: #fff;
-    position: absolute;
-    margin-top: 19%;
-    margin-left:32%;
-    text-align: center;
+    line-height: 20px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    word-wrap: break-word;
+} 
+
+.content a{
+    text-decoration: none;
+    padding: 15px 20px;
+    background-color: rgb(156, 175, 45);
+    color:rgb(11, 12, 3);
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 30px;
 }
+
