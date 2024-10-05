@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+     <!-- Montserrat Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+     <!-- Material Icons -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+ 
+     <!-- Custom CSS -->
+     <link rel="stylesheet" href="styles/dashboard.css">
+
+</head>
+<body>
+    <div class="grid-container">
+        <header class="header">
+
+            <!-- middle section -->
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <!-- right section -->
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+              </div>
+        </header>
+<!-- end of header -->
+
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-icon">
+                    <span class="material-symbols-outlined">skillet</span>R3seaPea
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item"><a href="#"><span class="material-icons-outlined">inventory_2</span> Products</a></li>
+                <li class="sidebar-menu-item"><a href="#"><span class="material-symbols-outlined">skillet</span>Recipes</a></li>
+                <li class="sidebar-menu-item"><a href="#"><span class="material-icons-outlined">people</span>Users</a></li>
+                <li class="sidebar-menu-item"><a href="#"><span class="material-icons-outlined">poll</span>Report</a></li>
+                <li class="sidebar-menu-item"><a href="#" target="_blank"><span class="material-icons-outlined">settings</span> Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- end sidebar -->
+
+        <main class="main-container">
+            <div class="title">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner-item">
+                    <h3>TOTAL USERS</h3>
+                    <span class="material-icons-outlined">people</span>
+                </div>
+                <h1>5000</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner-item">
+                    <h3>TOTAL RECIPES</h3>
+                    <span class="material-icons-outlined">lunch_dining</span>
+                </div>
+                <h1>4000</h1>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
