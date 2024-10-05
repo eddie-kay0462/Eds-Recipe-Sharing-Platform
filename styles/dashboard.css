@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color:#1D2634;
+    background-color:#fdf9f9;
     font-family: 'Montserrat', sans-serif;
   }
   
@@ -24,13 +24,12 @@ body {
 
 .header{
     grid-area: header;
-    background-color:#1D2634;
-    color: #fff;
+    background-color:rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.01);
 }
 
 
@@ -42,7 +41,7 @@ body {
 .nav ul li a{
    text-decoration: none;
    text-transform: uppercase;
-   color: #fff;
+   color: black;
     font-size: 1.2rem;
    font-weight: bold;
 }
@@ -51,7 +50,7 @@ body {
 {
     grid-area: sidebar;
     height: 100%;
-    background-color: #263043;
+    background-color: #161718;
     overflow-y: auto;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -98,4 +97,56 @@ body {
 .sidebar-menu-item > a {
     text-decoration: none;
     color: #9e9ea4;
+}
+
+.main-container{
+    grid-area: main;
+    overflow-y: auto;
+    padding: 20px 20px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.title{
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title h1{
+    color: black;
+}
+
+.major-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 25px;
+    border-radius: 5px;
+  }
+
+.card:first-child {
+    background-color: #1b6bbb;
+    height: 20rem;
+}
+.card:nth-child(2) {
+    background-color: rgb(4, 26, 4);
+}
+.card-inner-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-inner-item > h3{
+    font-size: 1.8rem;
+    color: #fff;
   }
