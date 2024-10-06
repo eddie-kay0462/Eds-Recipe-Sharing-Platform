@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color:#fdf9f9;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+.material-icons-outlined, .material-symbols-outlined {
+    vertical-align: middle;
+    line-height: 1.5px;
+    font-size: 30px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+        'sidebar header header header'
+        'sidebar main main main';
+    height: 100vh;
+}
+
+.header{
+    grid-area: header;
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.01);
+}
+
+
+.nav ul li{
+    display: inline;
+    margin-right: 10px;
+ 
+}
+.nav ul li a{
+   text-decoration: none;
+   text-transform: uppercase;
+   color: black;
+    font-size: 1.2rem;
+   font-weight: bold;
+}
+
+.sidebar 
+{
+    grid-area: sidebar;
+    height: 100%;
+    background-color: #161718;
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+      
+}
+
+.main-container{
+    grid-area: main;
+    padding: 20px;
+  
+}
+  
+.sidebar-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    color: #fff;
+    margin-bottom: 50px;
+    font-size: 1.8rem;
+}
+
+.sidebar-top > span {
+    display: none;
+  }
+
+.sidebar-menu{
+    list-style-type: none;
+    padding: 0;
+ 
+}
+
+.sidebar-menu-item {
+    padding: 40px;
+    font-size: 1.3rem;
+  }
+
+.sidebar-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+
+.sidebar-menu-item > a {
+    text-decoration: none;
+    color: #9e9ea4;
+}
+
+/* Table Styles */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+table th, table td {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color:#161718;
+    color: white;
+    text-transform: uppercase;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-container{
+    max-width: 100%;
+    overflow-x: scroll
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.read-btn {
+    background-color: #0b3f61;
+}
+
+.update-btn {
+    background-color:  #c78418;
+}
+
+.delete-btn {
+    background-color: #bb1e0d;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* media queris */
+@media screen and (max-width: 1217px) {
+    button {
+        margin: 5px;
+        width: 100%;
+    }
+    
+}
