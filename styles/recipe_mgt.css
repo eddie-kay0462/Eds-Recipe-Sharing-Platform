@@ -337,6 +337,10 @@ button:hover {
          width: 100%;
         margin: 5px;
     }
+
+    .main-container{
+        margin-top: 80px;
+    }
 }
 #menu:checked ~ .side-menu{
     left: 0;
