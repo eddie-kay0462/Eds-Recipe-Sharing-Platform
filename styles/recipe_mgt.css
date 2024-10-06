@@ -246,6 +246,19 @@ button:hover {
 
 /* media queries */
 @media (max-width: 850px){
+    .grid-container{
+        grid-template-columns: 90px 1fr 1fr  1fr;
+        grid-template-areas:
+        'header header header header'
+        'sidebar main main main';
+    }
+
+    .table-container{
+        max-width: 100%; 
+        overflow-x: scroll;  
+    }
+  
+
     .side-menu a span{
         display: none;
     }
@@ -273,13 +286,22 @@ button:hover {
         font-size: 35px;
     }
 
-    .data{
-        margin-left: 100px;
-    }
+  
 }
 
 @media (max-width: 650px){
- 
+    .grid-container{
+        grid-template-columns: 90px 1fr 1fr  1fr;
+        grid-template-areas:
+        'header header header header'
+        'main main main main';
+    }
+
+    .table-container{
+        max-width: 100%; 
+        overflow-x: scroll;  
+    }
+  
 
     .data{
         display: none;
@@ -309,7 +331,13 @@ button:hover {
 
   
 }
-
+@media (max-width: 1060px){
+    .read-btn, .update-btn, .delete-btn{
+       display: block;
+         width: 100%;
+        margin: 5px;
+    }
+}
 #menu:checked ~ .side-menu{
     left: 0;
  }
