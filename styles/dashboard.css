@@ -11,8 +11,9 @@
 
 .material-icons-outlined, .material-symbols-outlined {
     vertical-align: middle;
-    line-height: 1;
-    font-size: 24px;
+    line-height: 1.5px;
+    font-size: 30px;
+    
 }
 
 .grid-container {
@@ -83,6 +84,7 @@ nav ul li a:hover {
     border-radius: 50%;
     margin-bottom: 10px;
     border: 3px solid white;
+    margin-top: 20px;
 }
 
 .side-menu center h2 {
@@ -96,6 +98,7 @@ nav ul li a:hover {
     color: white;
     padding: 15px 20px;
     transition: 0.3s;
+    text-transform: uppercase;
 }
 
 .side-menu a:hover {
@@ -106,7 +109,9 @@ nav ul li a:hover {
 .side-menu span {
     margin-left: 15px;
     font-size: 16px;
+
 }
+
 
 .main-container {
     grid-area: main;
