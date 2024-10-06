@@ -305,8 +305,6 @@ button:hover {
         max-width: 100%; 
         overflow-x: scroll;  
     }
-  
-
     .data{
         display: none;
     }
@@ -322,18 +320,15 @@ button:hover {
         text-align: center;
         left: 100%;
     }
-
   
     .side-menu a span{
         display: block
     }
 
-   
     nav .menu-bar{
         display: block;
     }
 
-  
 }
 @media (max-width: 1060px){
     .read-btn, .update-btn, .delete-btn{
