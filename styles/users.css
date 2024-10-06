@@ -84,7 +84,7 @@ body {
 
 .sidebar-menu-item {
     padding: 40px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     color: #fff;
@@ -125,6 +125,11 @@ table tr:hover {
     background-color: #f1f1f1;
 }
 
+.table-container{
+    max-width: 100%;
+    overflow-x: scroll
+}
+
 button {
     padding: 8px 12px;
     border: none;
@@ -149,4 +154,14 @@ button {
 
 button:hover {
     opacity: 0.8;
+}
+
+
+/* media queris */
+@media screen and (max-width: 1217px) {
+    button {
+        margin: 5px;
+        width: 100%;
+    }
+    
 }
