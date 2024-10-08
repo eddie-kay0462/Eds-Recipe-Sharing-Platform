@@ -131,6 +131,11 @@ nav ul li a:hover{
     padding: 20px 20px;
     background-color:rgba(165, 26, 26, 0.01);
 }
+
+.main-container h2{
+    color: black;
+    margin-top: 1.5rem;
+}
 nav .menu-bar{
     float: right;
     display: none;
