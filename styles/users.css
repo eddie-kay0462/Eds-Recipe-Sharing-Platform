@@ -294,18 +294,12 @@ button:hover {
         margin-left: 0;
         font-size: 35px;
     }
-
-  
 }
 
 @media (max-width: 650px){
     .grid-container{
-        grid-template-columns: 90px 1fr 1fr  1fr;
-        grid-template-areas:
-        'header header header header'
-        'main main main main';
+        grid-template-columns: 1fr;
     }
-
     .table-container{
         max-width: 100%; 
         overflow-x: scroll;  
@@ -320,7 +314,7 @@ button:hover {
 
     .side-menu{
         width: 100%;
-        background-color: #4c516d;
+        background-color: black;
         transition: all 0.5s;
         text-align: center;
         left: 100%;
