@@ -1,5 +1,5 @@
-document.getElementById('signupForm').addEventListener('click', function(event) {
-    event.preventDefault();
+document.getElementById('signupForm').addEventListener('click', function(e) {
+    e.preventDefault();
     
     // Reset error messages
     document.querySelectorAll('.error').forEach(el => el.textContent = '');
@@ -33,7 +33,7 @@ document.getElementById('signupForm').addEventListener('click', function(event) 
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     if (!passwordRegex.test(password.value)) {
         document.getElementById('passwordError').innerHTML
-        = `Password should have` + '<br>' + '<ul>' + '<li>Minimum 8 characters</li>' + '<li>At least one letter</li>' + '<li>At least one number</li>' + '</ul>';
+        = `Password should have` + '<br>' + '<ul>' + '<li>Minimum eight characters</li>' + '<li>At least one letter</li>' + '<li>At least one number</li>' + '</ul>';
         isValid = false;
     }
 
@@ -46,8 +46,9 @@ document.getElementById('signupForm').addEventListener('click', function(event) 
 
     if (isValid) {
         // If all validations pass, you can submit the form
-        console.log('Form is valid, ready to submit');
-        // Uncomment the next line to actually submit the form
-        // this.submit();
+        alert('Sign up successful');
+     
+        //reset form
+        document.getElementById('signupForm').reset();
     }
 });
