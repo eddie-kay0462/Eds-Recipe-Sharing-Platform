@@ -8,23 +8,20 @@ const cancelUpdate = document.getElementById('cancel-update');
 // Show the update form on button click
 updateButtons.forEach(button => {
     button.addEventListener('click', (event) => {
-        const row = event.target.closest('tr');
-        
-        const userId = row.children[0].textContent;
-        const userName = row.children[1].textContent;
-        const userEmail = row.children[2].textContent;
+        const row = event.target.closest('tr');  // Get the row
 
-        // Populate form fields with existing data
-        document.getElementById('update-id').value = userId;
-        document.getElementById('update-name').value = userName;
-        document.getElementById('update-email').value = userEmail;
+        // Get row data
+        const userId = row.children[0].textContent;  // Get the user ID 
+        const userName = row.children[1].textContent;  // Get the user name
+        const userEmail = row.children[2].textContent;      // Get the user email
+
 
         // Show form and overlay
         updateForm.style.display = 'block';
         overlay.style.display = 'block';
-
+        
         // Save row index to update later
-        updateForm.dataset.rowIndex = Array.from(row.parentElement.children).indexOf(row);
+        updateForm.dataset.rowIndex = Array.from(row.parentElement.children).indexOf(row);  // Save the row index
     });
 });
 
@@ -62,6 +59,6 @@ cancelUpdate.addEventListener('click', () => {
 
 // Email validation function
 function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return re.test(String(email).toLowerCase());
 }
