@@ -248,7 +248,7 @@ button:hover {
     opacity: 0.8;
 }
 /* add recipe modal */
-.modal {
+.modalAddRecipe {
     display: none;
     position: fixed;
     z-index: 1;
@@ -285,6 +285,27 @@ button:hover {
     border-radius: 18px;
     cursor: pointer;
   
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #ddd;
+    z-index: 11;
+    width: 300px;
+    border-radius: 8px;
+}
+.modal h3 {
+    margin-top: 0;
+}
+.modal button {
+    margin-top: 10px;
+    background-color: red;
 }
 
 .modal-content {
