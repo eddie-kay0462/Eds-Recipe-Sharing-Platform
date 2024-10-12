@@ -11,6 +11,7 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
     modal.style.display = "block";
 }
+const deleteButtons = document.querySelectorAll('.delete-btn');
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -24,6 +25,16 @@ window.onclick = function(event) {
     }
 }
 
+// Delete row on button click
+deleteButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const row = event.target.closest('tr');  // Get the row
+        const recipeName = row.children[1].textContent;  // Get the user name
+        const confirmDelete = confirm(`Are you sure you want to recipe ${recipeName}?`);
+        if (!confirmDelete) return;  // If user cancels, do nothing
+        row.remove(); // Remove the row
+    });
+});
 // Form validation
 function validateForm() {
     let isValid = true;
