@@ -44,6 +44,7 @@ input{
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .button:hover {
     background-color: rgb(47, 51, 28);
@@ -56,4 +57,9 @@ input{
     margin-top: 8px;
     font-weight: bold;
     color: black;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
 }
