@@ -1,10 +1,14 @@
 // Get elements
 const updateButtons = document.querySelectorAll('.update-btn');
+const deleteButtons = document.querySelectorAll('.delete-btn');
+const viewMoreButtons = document.querySelectorAll('.read-btn');
 const updateForm = document.querySelector('.update-form');
 const overlay = document.querySelector('.overlay');
 const updateSubmit = document.getElementById('update-submit');
 const cancelUpdate = document.getElementById('cancel-update');
-const deleteButtons = document.querySelectorAll('.delete-btn');
+const userModal = document.getElementById('user-modal');
+const userDetails = document.getElementById('user-details');
+const closeModal = document.getElementById('close-modal');
 
 // Show the update form on button click
 updateButtons.forEach(button => {
@@ -62,11 +66,39 @@ deleteButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         const row = event.target.closest('tr');  // Get the row
         const userName = row.children[1].textContent;  // Get the user name
-        const confirmDelete = confirm(`Are you sure you want to delete ${userName}?`);
-
+        const confirmDelete = confirm(`Are you sure you want to delete the user with name ${userName}?`);
         if (!confirmDelete) return;  // If user cancels, do nothing
         row.remove(); // Remove the row
     });
+});
+
+// View more details on button click
+viewMoreButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const row = event.target.closest('tr');  // Get the row
+        const userId = row.children[0].textContent;  // Get the user ID
+        const userName = row.children[1].textContent;  // Get the user name
+        const userEmail = row.children[2].textContent;  // Get the user email
+
+        // Show modal and overlay
+        userModal.style.display = 'block';
+        overlay.style.display = 'block';
+
+        // Show user details
+        userDetails.innerHTML = `
+            <p><strong>User ID:</strong> ${userId}</p><br>  
+            <p><strong>Name:</strong> ${userName}</p><br>
+            <p><strong>Email:</strong> ${userEmail}</p>
+        `;
+    });
+
+});
+
+
+// Close modal on button click
+closeModal.addEventListener('click', () => {
+    userModal.style.display = 'none';
+    overlay.style.display = 'none';
 });
 // Email validation function
 function validateEmail(email) {
