@@ -30,7 +30,6 @@
      var formData = new FormData(e.target);
      var recipeData = Object.fromEntries(formData.entries());
      console.log(recipeData);
-     // Here you would typically send the data to a server
      // For now, we'll just log it and close the modal
      modal.style.display = "none";
  }
