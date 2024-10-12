@@ -11,8 +11,13 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
     modal.style.display = "block";
 }
-const deleteButtons = document.querySelectorAll('.delete-btn');
+const deleteButtons = document.querySelectorAll('.delete-btn'); // Get all delete buttons
 
+const viewMoreButtons = document.querySelectorAll('.read-btn'); // Get all view more buttons
+
+const recipeModal = document.getElementById('recipe-modal'); // Get the recipe modal
+const recipeDetails = document.getElementById('recipe-details'); // Get the recipe details
+const closeRecipeModal = document.getElementById('close-recipe-modal'); // Get the close recipe modal button
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
@@ -24,6 +29,36 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
+// View more details on button click
+viewMoreButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const row = event.target.closest('tr');  // Get the row
+        const recipeId = row.children[0].textContent;  // Get recipe ID
+        const recipeName = row.children[1].textContent;  // Get recipe name
+        const recipeAuthor = row.children[2].textContent;  // Get recipe author
+        const dateCreated = row.children[3].textContent;  // Get date created
+        // Show modal and overlay
+        recipeModal.style.display = 'block';
+        recipeDetails.style.display = 'block';
+
+        // Show user details
+        recipeDetails.innerHTML = `
+            <p><strong>User ID:</strong> ${recipeId}</p><br>  
+            <p><strong>Name:</strong> ${recipeName}</p><br>
+            <p><strong>Email:</strong> ${recipeAuthor}</p><br>
+            <p><strong>Date Created:</strong> ${dateCreated}</p>
+        `;
+    });
+
+});
+
+// Close recipe modal
+closeRecipeModal.addEventListener('click', () => {
+    recipeModal.style.display = 'none';
+    recipeDetails.style.display = 'none';
+});
 
 // Delete row on button click
 deleteButtons.forEach(button => {
