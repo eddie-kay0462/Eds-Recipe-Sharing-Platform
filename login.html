@@ -10,16 +10,18 @@
     <!-- login form -->
      <div class="login">
         <h2>Login</h2>
-        <form action="">
+        <form action="" class="login-form">
             <label for="email">Email</label><br>
-            <input type="text" name="email" id="" placeholder="Email"><br><br>
+            <input type="text" name="email" id="email" placeholder="Email" required><br><br>
             <div id="emailError" class="error"></div>
             <label for="password">Password</label><br>
-            <input type="password" name="password" id="" placeholder="Password"><br><br>
+            <input type="password" name="password" id="password" placeholder="Password" required><br><br>
             <div id="passwordError" class="error"></div>
-            <a href="" class="button">Login</a>
-            <a href="signup.html" class="signup">Forgot account? Sign Up</a>
+            <!-- <a href="" class="button">Login</a> -->
+            <button type="submit" class="button">Login</button>
+            <a href="signup.html" class="signup">New User? Register here!</a>
         </form>
      </div>
+    <script src="scripts/login.js"></script>
 </body>
 </html>
