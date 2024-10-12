@@ -320,6 +320,13 @@ input, textarea {
     width: 100%;
 }
 
+.error {
+    color: red;
+    font-size: 1em;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
 /* media queries */
 @media (max-width: 850px){
     .grid-container{
