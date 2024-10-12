@@ -84,7 +84,7 @@
     </main>
 
         <!-- recipe form for adding new recipe -->
-        <div id="recipeModal" class="modal">
+        <div id="recipeModal" class="modalAddRecipe">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <form id="recipeForm">
@@ -148,6 +148,13 @@
                 </form>
             </div>
         </div>
+
+         <!-- Modal for viewing recipe details -->
+            <div class="modal" id="recipe-modal">
+                <h3>Recipe Details</h3>
+                <p id="recipe-details"></p>
+                <button id="close-recipe-modal">Close</button>
+            </div>
     </div>
     <script src="scripts/recipe_mgt.js"></script>
 </body>
