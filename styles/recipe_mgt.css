@@ -226,6 +226,11 @@ button {
     text-transform: uppercase;
     font-weight: bold;
 }
+#add-recipe {
+    display: inline-block;
+    background-color: #2ecc71;
+    margin-top: 1rem;
+}
 
 .read-btn {
     background-color: #3498db;
@@ -242,7 +247,78 @@ button {
 button:hover {
     opacity: 0.8;
 }
+/* add recipe modal */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-color: rgba(158, 141, 141, 0.4); */
+}
+#recipeForm {
+    padding: 20px;
+}
+#recipeForm label {
+    /* font-weight: bold; */
+    margin-left: 5px;
+    color: #e6e9ec;
+}
+#recipeForm input, #recipeForm textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+#recipeForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+  
+}
 
+.modal-content {
+    /* background-color: rgb(140, 111, 163); */
+    background: rgba(0, 0, 0, 0.7) url(/images/recipe.jpg) center center fixed;
+    background-size: cover;
+    background-blend-mode: darken;
+    margin: 15% auto;
+    padding: 20x;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 600px;
+}
+.close {
+    color: #e7d1d1;
+    float: right;
+    font-size: 38px;
+    font-weight: bold;
+    margin-right: 10px;
+    
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+label {
+    font-weight: bold;
+}
+input, textarea {
+    width: 100%;
+}
 
 /* media queries */
 @media (max-width: 850px){
@@ -285,8 +361,6 @@ button:hover {
         margin-left: 0;
         font-size: 35px;
     }
-
-  
 }
 
 @media (max-width: 650px){
@@ -342,3 +416,8 @@ button:hover {
 #menu:checked ~ .side-menu{
     left: 0;
  }
+
+
+
+
+ 
