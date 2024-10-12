@@ -1,11 +1,11 @@
 // Get the modal
-var modal = document.getElementById("recipeModal");
+const modal = document.getElementById("recipeModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("add-recipe");
+const btn = document.getElementById("add-recipe");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -70,6 +70,8 @@ deleteButtons.forEach(button => {
         row.remove(); // Remove the row
     });
 });
+
+
 // Form validation
 function validateForm() {
     let isValid = true;
