@@ -4,6 +4,7 @@ const updateForm = document.querySelector('.update-form');
 const overlay = document.querySelector('.overlay');
 const updateSubmit = document.getElementById('update-submit');
 const cancelUpdate = document.getElementById('cancel-update');
+const deleteButtons = document.querySelectorAll('.delete-btn');
 
 // Show the update form on button click
 updateButtons.forEach(button => {
@@ -56,7 +57,17 @@ cancelUpdate.addEventListener('click', () => {
     updateForm.style.display = 'none';
     overlay.style.display = 'none';
 });
+// Delete row on button click
+deleteButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const row = event.target.closest('tr');  // Get the row
+        const userName = row.children[1].textContent;  // Get the user name
+        const confirmDelete = confirm(`Are you sure you want to delete ${userName}?`);
 
+        if (!confirmDelete) return;  // If user cancels, do nothing
+        row.remove(); // Remove the row
+    });
+});
 // Email validation function
 function validateEmail(email) {
     const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
