@@ -29,5 +29,8 @@ loginForm.addEventListener('submit', function(event) {
 
     if (valid) {
         alert('Login successful!!!');
+
+        //reset form
+        loginForm.reset();
     }
 });
