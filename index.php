@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="/styles/recipefeed.css">
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
+
 <body>
     <header>
         <div class="navbar">
@@ -25,12 +27,12 @@
             </div>
         </div>
         <div class="dropdown_menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">SignUp</a></li>
-                <li><a href="#" id="contact">Contact</a></li>
-                <li><a href="recipe_feed.html" class="action_btn">Get Started</a></li
-        </div>
+            <li><a href="#">Hme</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">SignUp</a></li>
+            <li><a href="#" id="contact">Contact</a></li>
+            <li><a href="recipe_feed.html" class="action_btn">Get Started</a></li
+                </div>
     </header>
     <div class="content">
         <h1>Welcome to <i>R3seaPea!!!</i></h1>
@@ -42,11 +44,12 @@
         const toggleBtn = document.querySelector('.toggle_btn');
         const toggleBtnIcon = document.querySelector('.toggle_btn i');
         const dropDownMenu = document.querySelector('.dropdown_menu');
-        toggleBtn.onclick = function (){
+        toggleBtn.onclick = function() {
             dropDownMenu.classList.toggle('open');
             const isOpen = dropDownMenu.classList.contains('open');
-            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark': 'fa-solid fa-bars'
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
         }
     </script>
 </body>
+
 </html>
