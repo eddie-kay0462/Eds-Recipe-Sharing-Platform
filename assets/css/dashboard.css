@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.material-icons-outlined, .material-symbols-outlined {
+    vertical-align: middle;
+    line-height: 1.5px;
+    font-size: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: minmax(210px, 1fr) 5fr;
+    grid-template-rows: 0.3fr 3fr;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+    height: 100vh;
+}
+
+nav {
+    grid-area: header;
+    background-color: #161718;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+label {
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-transform: uppercase;
+    font-size: 16px;
+    color: white;
+    padding: 7px 13px;
+    border-radius: 3px;
+    transition: .3s;
+    font-weight: 600;
+    background-color: rgb(112, 105, 170);
+}
+
+nav ul li a:hover {
+    background-color: rgb(49, 11, 214);
+}
+
+.side-menu {
+    grid-area: sidebar;
+    background-color: #161718;
+    overflow-y: auto;
+    padding-top: 20px;
+    transition: all 0.3s;
+    box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+.side-menu center {
+    margin-top: 40px;
+}
+.side-menu center img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid white;
+    margin-top: 20px;
+    background-repeat: no-repeat;
+}
+
+.side-menu center h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.side-menu a {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 15px 20px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.side-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 25px;
+}
+
+.side-menu span {
+    margin-left: 15px;
+    font-size: 16px;
+
+}
+
+
+.main-container {
+    grid-area: main;
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.title h1 {
+    color: #333;
+    font-size: 28px;
+}
+
+.major-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card:first-child {
+    background-color: #1b6bbb;
+    color: #fff;
+}
+
+.card:nth-child(2) {
+    background-color: #044d04;
+    color: #fff;
+}
+
+.card-inner-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-inner-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+#menu, .menu-bar {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main";
+    }
+
+    .side-menu {
+        position: fixed;
+        left: -250px;
+        top: 80px;
+        bottom: 0;
+        width: 260px;
+        z-index: 999;
+    }
+
+  
+
+    #menu:checked ~ .side-menu {
+        left: 0;
+    }
+
+    .menu-bar {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .major-cards {
+        /* grid-template-columns: 1fr; */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card h1 {
+        font-size: 28px;
+    }
+
+    .title h1 {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 20px;
+    }
+}
