@@ -35,7 +35,7 @@
             <span id="confirmPasswordError" class="error"></span><br>
             <input type="submit" class="button" name="register" value="Register">
             <a type="submit" href="" name="signup" class="button">Sign Up</a>
-            <a href="login.html" class="login">Already have an account?</a>
+            <a href="login.php" class="login">Already have an account?</a>
         </form>
 
     </div>
