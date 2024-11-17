@@ -16,9 +16,9 @@
         <div class="navbar">
             <div class="logo"><a href="#">R3seaPea</a></div>
             <ul class="links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="login.html" class="login">Login</a></li>
+                <li><a href="view/login.php" class="login">Login</a></li>
                 <li><a href="signup.html" class="signup">SignUp</a></li>
             </ul>
             <a href="recipe_feed.html" class="action_btn">Get Started</a>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="dropdown_menu">
-            <li><a href="#">Hme</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="login.html">Login</a></li>
             <li><a href="signup.html">SignUp</a></li>
             <li><a href="#" id="contact">Contact</a></li>
