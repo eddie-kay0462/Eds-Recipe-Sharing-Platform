@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
     <!-- login form -->
      <div class="login">
         <h2>Login</h2>
-        <form class="login-form">
+        <form class="login-form" action="/actions/login_user.php" method="post">
             <label for="email">Email</label><br>
             <input type="text" name="email" id="email" placeholder="Email" required><br><br>
             <div id="emailError" class="error"></div>

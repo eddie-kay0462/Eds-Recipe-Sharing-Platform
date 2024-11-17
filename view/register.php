@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/assets/css/signup.css">
+    <link rel="stylesheet" href="../assets/css/signup.css">
 </head>
+
 <body>
     <!-- signup form -->
     <!-- signup form -->
     <div class="signup">
         <h1>Sign Up</h1>
-        <form id="signupForm" action="" method="POST">
+        <form id="signupForm" action="../actions/register_user.php" method="post">
             <label for="fname">First Name</label><br>
             <input type="text" name="fname" id="fname" placeholder="First Name"><br>
             <span id="fnameError" class="error"></span><br>
@@ -31,12 +33,14 @@
             <label for="confirmPassword">Confirm Password</label><br>
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password"><br>
             <span id="confirmPasswordError" class="error"></span><br>
-
-            <a type="submit" class="button">Sign Up</a>
+            <input type="submit" class="button" name="register" value="Register">
+            <a type="submit" href="" name="signup" class="button">Sign Up</a>
+            <a href="login.html" class="login">Already have an account?</a>
         </form>
-        <a href="login.html" class="login">Already have an account?</a>
+
     </div>
 
-    <script src="assets/js/signup.js"></script>
+    <script src="../assets/js/signup.js"></script>
 </body>
+
 </html>
