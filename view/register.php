@@ -33,8 +33,8 @@
             <label for="confirmPassword">Confirm Password</label><br>
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password"><br>
             <span id="confirmPasswordError" class="error"></span><br>
-            <input type="submit" class="button" name="register" value="Register">
-            <a type="submit" href="" name="signup" class="button">Sign Up</a>
+            <input type="submit" class="button" name="register" value="Register" style="width:100%;">
+            <!-- <a type="submit" href="" name="signup" class="button">Sign Up</a> -->
             <a href="login.php" class="login">Already have an account?</a>
         </form>
 

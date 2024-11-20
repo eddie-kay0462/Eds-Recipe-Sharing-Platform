@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +10,20 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
     <title>Dashboard</title>
 </head>
+
 <body>
-   
+
     <div class="grid-container">
         <input type="checkbox" id="menu">
         <nav>
             <label for="">R3seaPea</label>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">HOOme</a></li>
             </ul>
-    
+
             <label for="menu" class="menu-bar"><i class="fa fa-bars"></i></label>
         </nav>
         <div class="side-menu">
@@ -50,7 +52,7 @@
                     </div>
                     <h1>5000</h1>
                 </div>
-        
+
                 <div class="card">
                     <div class="card-inner-item">
                         <h3>TOTAL RECIPES</h3>
@@ -60,9 +62,10 @@
                 </div>
             </div>
         </main>
-       
+
     </div>
-    
+
 
 </body>
+
 </html>
