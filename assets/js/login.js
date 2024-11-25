@@ -32,6 +32,6 @@ loginForm.addEventListener('submit', function(event) {
         loginForm.submit();
 
         //reset form
-        // loginForm.reset();
+        loginForm.reset();
     }
 });
