@@ -18,26 +18,26 @@
             <ul class="links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="view/login.php" class="login">Login</a></li>
-                <li><a href="signup.html" class="signup">SignUp</a></li>
+                <li><a href="./view/login.php" class="login">Login</a></li>
+                <li><a href="./view/register.php" class="signup">SignUp</a></li>
             </ul>
-            <a href="recipe_feed.html" class="action_btn">Get Started</a>
+            <a href="./view/login.php" class="action_btn">Get Started</a>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
         <div class="dropdown_menu">
             <li><a href="#">Home</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">SignUp</a></li>
+            <li><a href="./view/login.php">Login</a></li>
+            <li><a href="./view/register.php">SignUp</a></li>
             <li><a href="#" id="contact">Contact</a></li>
-            <li><a href="recipe_feed.html" class="action_btn">Get Started</a></li
-                </div>
+            <li><a href="./view/login.php" class="action_btn">Get Started</a></li>
+        </div>
     </header>
     <div class="content">
         <h1>Welcome to <i>R3seaPea!!!</i></h1>
         <p>Welcome to the ultimate hub for food lovers! Discover, share, and create delicious recipes from around the world. Let's cook up something amazing together!</p>
-        <a href="recipe_feed.html">Get Started</a>
+        <a href="./view/login.php">Get Started</a>
     </div>
 
     <script>
