@@ -7,7 +7,6 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../assets/css/signup.css">
 </head>
-
 <body>
     <!-- signup form -->
     <!-- signup form -->

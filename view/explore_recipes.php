@@ -20,7 +20,7 @@
                 <li><a href="#">Services</a></li>
                 <li><a href="#" id="contact">Contact</a></li>
             </ul>
-            <a href="#" class="action_btn">Get Started</a>
+            <!-- <a href="#" class="action_btn">Get Started</a> -->
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -30,7 +30,7 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#" id="contact">Contact</a></li>
-            <li><a href="recipe_feed.html" class="action_btn">Get Started</a></li>
+            <!-- <li><a href="recipe_feed.html" class="action_btn">Get Started</a></li> -->
         </div>
     </header>
     <div class="content" style="background: rgba(0, 0, 0, 0.7) url(../assets/images/2-recipe.jpg) center center fixed;">
