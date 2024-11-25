@@ -1,0 +1,23 @@
+MySQL Database Access Instructions
+==================================
+
+Your MySQL database: webtech_fall2024_edward_mensah
+Your MySQL username: edward.mensah
+Your current MySQL password: 53322026
+
+To change your MySQL password:
+
+1. Open a terminal and connect to MySQL:
+   mysql -u edward.mensah -p
+
+2. Enter your current MySQL password when prompted.
+
+3. Once connected, run the following command to change your password:
+   ALTER USER 'edward.mensah'@'localhost' IDENTIFIED BY 'your_new_password';
+
+4. Exit MySQL by typing:
+   quit
+
+Remember to replace 'your_new_password' with a strong, unique password of your choice.
+
+IMPORTANT: You must change your password before you can perform any other MySQL operations.
