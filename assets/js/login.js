@@ -19,7 +19,7 @@ loginForm.addEventListener('submit', function(event) {
     }
 
     //password validation
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W]{8,}$/; //Minimum eight characters, at least one letter and one number
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%^*#?&])[A-Za-z\d@$!^%*#?&]{8,}$/;//Minimum eight characters, at least one letter and one number
     if (!passwordRegex.test(passwordInput.value)) {
         passwordError.innerHTML = `Invalid!!. Password should have` + '<br>' + '<ul>' + '<li>Minimum eight characters</li>' + '<li>At least one letter</li>' + '<li>At least one number</li>' + '</ul>';
         valid = false;
@@ -28,9 +28,10 @@ loginForm.addEventListener('submit', function(event) {
     }
 
     if (valid) {
-        alert('Login successful!!!');
+        //submit form
+        loginForm.submit();
 
         //reset form
-        loginForm.reset();
+        // loginForm.reset();
     }
 });
