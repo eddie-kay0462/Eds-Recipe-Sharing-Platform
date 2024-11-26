@@ -1,5 +1,5 @@
 <?php
-include '../db/config.php';
+include '../db/config2.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -37,6 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-        header('Location: ../view/login.php?error=Invalid email or password');
+        else
+        {
+            header('Location: ../view/login.php?error=Invalid emaill or password');
+        }
+
+  
     }
 }

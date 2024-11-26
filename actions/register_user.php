@@ -1,5 +1,5 @@
 <?php
-include '../db/config.php';
+include '../db/config2.php';
 
 //check if form is submited
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
