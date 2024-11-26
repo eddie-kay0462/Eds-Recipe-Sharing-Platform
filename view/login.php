@@ -12,12 +12,15 @@
     <!-- login form -->
     <div class="login">
         <h2>Login</h2>
-        <!-- Display error message if present -->
-        <?php if (isset($_GET['error'])): ?>
-            <div class="error-message" style="color: red; margin-bottom: 10px;">
-                <?php echo htmlspecialchars($_GET['error']); ?>
-            </div>
-        <?php endif; ?>
+        <!-- Display error message if login fails and clear the message after 3 seconds -->
+        <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.error').style.display = 'none';
+                }, 2000);
+            </script>
+        <?php } ?>
         <form class="login-form" action="../actions/login_user.php" method="post">
             <label for="email">Email</label><br>
             <input type="text" name="email" id="email" placeholder="Email" required><br><br>

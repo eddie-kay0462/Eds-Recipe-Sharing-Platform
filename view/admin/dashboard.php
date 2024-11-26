@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
-    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet"  href="../../assets/css/dashboard.css">
     <title>Dashboard</title>
 </head>
 
@@ -21,22 +19,22 @@
         <nav>
             <label for="">R3seaPea</label>
             <ul>
-                <li><a href="index.html">HOOme</a></li>
+                <li><a href="../../index.php">Home</a></li>
             </ul>
 
             <label for="menu" class="menu-bar"><i class="fa fa-bars"></i></label>
         </nav>
         <div class="side-menu">
             <center>
-                <img src="/assets/images/me.jpg" alt="">
+                <img src="../../assets/images/me.jpg" alt="">
                 <h2>Admin</h2>
             </center>
-            <a href="index.html"><span class="material-symbols-outlined">home</span><span>Home</span></a>
-            <a href="dashboard.html"><span class="material-icons-outlined">dashboard</span><span>Dashboard</span></a>
-            <a href="recipe_mgt.html"><span class="material-symbols-outlined">lunch_dining</span><span>Recipes</span></a>
-            <a href="users.html"><span class="material-icons-outlined">people</span><span>Users</span></a>
+            <a href="index.php"><span class="material-symbols-outlined">home</span><span>Home</span></a>
+            <a href="dashboard.php"><span class="material-icons-outlined">dashboard</span><span>Dashboard</span></a>
+            <a href="recipe_mgt.php"><span class="material-symbols-outlined">lunch_dining</span><span>Recipes</span></a>
+            <a href="users.php"><span class="material-icons-outlined">people</span><span>Users</span></a>
             <a href="#"><span class="material-icons-outlined">poll</span><span>Reports</span></a>
-            <a href="login.html"><span class="material-symbols-outlined">logout</span><span>Logout</span></a>
+            <a href="../../index.php"><span class="material-symbols-outlined">logout</span><span>Logout</span></a>
         </div>
 
         <!-- main -->

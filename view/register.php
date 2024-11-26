@@ -7,11 +7,21 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../assets/css/signup.css">
 </head>
+
 <body>
     <!-- signup form -->
     <!-- signup form -->
     <div class="signup">
         <h1>Sign Up</h1>
+        <!-- Display error message if signup fails and clear the message after 3 seconds -->
+        <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.error').style.display = 'none';
+                }, 2000);
+            </script>
+        <?php } ?>
         <form id="signupForm" action="../actions/register_user.php" method="post">
             <label for="fname">First Name</label><br>
             <input type="text" name="fname" id="fname" placeholder="First Name"><br>
