@@ -5,13 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/signup.css">
+    <style>
+        /* Additional CSS to style the home icon and text */
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .home-link:hover {
+            color: #838A59;
+            /* Change color on hover */
+        }
+
+        .home-link i {
+            font-size: 1.7rem;
+            margin-right: 10px;
+            /* Space between icon and text */
+        }
+
+        .home-link span {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .signup {
+            position: relative;
+            /* Ensure positioning context for absolute icon */
+        }
+    </style>
 </head>
 
 <body>
-    <!-- signup form -->
+
     <!-- signup form -->
     <div class="signup">
+        <a href="../index.php" class="home-link" title="Go to Home">
+            <i class="fas fa-home"></i>
+            <span>Back to Home</span>
+        </a>
         <h1>Sign Up</h1>
         <!-- Display error message if signup fails and clear the message after 3 seconds -->
         <?php if (isset($_GET['error'])) { ?>
