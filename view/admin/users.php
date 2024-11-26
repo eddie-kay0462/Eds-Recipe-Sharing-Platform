@@ -1,3 +1,49 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+require '../../db/config2.php';
+
+// Check if user is logged in and has admin privileges
+if (!isset($_SESSION['user']) || $_SESSION['role'] != 1) {
+    header('Location: ../../index.php');
+    exit();
+}
+
+// Fetch the current user's role
+$stmt = $conn->prepare('SELECT * FROM users WHERE user_id = ?');
+$stmt->bind_param('i', $_SESSION['user']['user_id']);
+$stmt->execute();
+$result = $stmt->get_result();
+$current_user = $result->fetch_assoc();
+
+// Only admin users can access this page
+if ($current_user['role'] != 1) {
+    // Access to dashboard is denied
+    header('Location: ../../index.php');
+    exit();
+}
+
+// fetch all users except the current user
+$stmt = $conn->prepare('SELECT * FROM users WHERE user_id != ?');
+$stmt->bind_param('i', $_SESSION['user']['user_id']);
+$stmt->execute();
+$result = $stmt->get_result();
+$users = $result->fetch_all(MYSQLI_ASSOC);
+
+//if delete button is clicked
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $stmt = $conn->prepare('DELETE FROM users WHERE user_id = ?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    header('Location: users.php');
+    exit();
+}
+// Close prepared statement and result set
+$stmt->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,36 +97,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>johndoe@example.com</td>
-                        <td>
-                            <button class="read-btn">View More</button>
-                            <button class="update-btn">Update</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jane Smith</td>
-                        <td>janesmith@example.com</td>
-                        <td>
-                            <button class="read-btn">View More</button>
-                            <button class="update-btn">Update</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Emily Johnson</td>
-                        <td>emilyj@example.com</td>
-                        <td>
-                            <button class="read-btn">View More</button>
-                            <button class="update-btn">Update</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
+                   <?php forEach($users as $user) { ?>
+                        <tr>
+                            <td><?php echo $user['user_id']; ?></td>
+                            <!-- both first and lanstname togethe -->
+                            <td><?php echo $user['fname'] . ' ' . $user['lname']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
+                            <td>
+                                <button class="read read-btn" data-id="<?php echo $user['user_id']; ?>">View</button>
+                                <button class="update update-btn" data-id="<?php echo $user['user_id']; ?>">Update</button>
+                                <button class="delete delete-btn" data-id="<?php echo $user['user_id']; ?>">Delete</button>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </main>
