@@ -22,11 +22,14 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
+
+
 label 
 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 }
 input{
     padding: 8px;
@@ -63,3 +66,6 @@ input{
     color: red;
     font-weight: bold;
 }
+
+
+
