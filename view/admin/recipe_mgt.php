@@ -1,3 +1,40 @@
+<?php
+
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+require '../../db/config.php';
+
+
+// Check if user is logged in and has admin privileges
+if (!isset($_SESSION['user']) || $_SESSION['role'] != 1) {
+    header('Location: ../../index.php');
+    exit();
+}
+
+//FETCH THE RECIPES FROM THE DATABASE
+$stmt = $conn->prepare('SELECT * FROM recipes');
+$stmt->execute();
+$recipes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+//if delete button is clicked
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $stmt = $conn->prepare('DELETE FROM recipes WHERE recipe_id = ?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    header('Location: recipe_mgt.php');
+    exit();
+}
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +57,7 @@
         <nav>
             <label for="">R3seaPea</label>
             <ul>
-            <li><a href="../../index.php">Home</a></li>
+                <li><a href="../../index.php">Home</a></li>
             </ul>
 
             <label for="menu" class="menu-bar"><i class="fa fa-bars"></i></label>
@@ -31,7 +68,7 @@
                 <h2>Admin</h2>
             </center>
             <br>
-            <a href="index.html"><span class="material-symbols-outlined">home</span><span>Home</span></a>
+            <a href="../../index.php"><span class="material-symbols-outlined">home</span><span>Home</span></a>
             <a href="dashboard.php"><span class="material-icons-outlined">dashboard</span><span>Dashboard</span></a>
             <a href="recipe_mgt.php"><span class="material-symbols-outlined">lunch_dining</span><span>Recipes</span></a>
             <a href="users.php"><span class="material-icons-outlined">people</span><span>Users</span></a>
@@ -54,6 +91,7 @@
                             <th>Author</th>
                             <th>Date Created</th>
                             <th>Actions</th>
+                             
                         </tr>
                     </thead>
                     <tbody>

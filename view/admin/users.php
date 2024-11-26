@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
-require '../../db/config2.php';
+require '../../db/config.php';
 
 // Check if user is logged in and has admin privileges
 if (!isset($_SESSION['user']) || $_SESSION['role'] != 1) {
@@ -24,12 +24,10 @@ if ($current_user['role'] != 1) {
     exit();
 }
 
-// fetch all users except the current user
-$stmt = $conn->prepare('SELECT * FROM users WHERE user_id != ?');
-$stmt->bind_param('i', $_SESSION['user']['user_id']);
+// fetch all users 
+$stmt = $conn->prepare('SELECT * FROM users');
 $stmt->execute();
-$result = $stmt->get_result();
-$users = $result->fetch_all(MYSQLI_ASSOC);
+$users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 //if delete button is clicked
 if (isset($_POST['delete'])) {
@@ -40,6 +38,20 @@ if (isset($_POST['delete'])) {
     header('Location: users.php');
     exit();
 }
+
+//if update button is clicked
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $stmt = $conn->prepare('UPDATE users SET fname = ?, email = ? WHERE user_id = ?');
+    $stmt->bind_param('ssi', $name, $email, $id);
+    $stmt->execute();
+    header('Location: users.php');
+    exit();
+}
+
+
 // Close prepared statement and result set
 $stmt->close();
 ?>
@@ -66,7 +78,7 @@ $stmt->close();
         <nav>
             <label for="">R3seaPea</label>
             <ul>
-            <li><a href="../../index.php">Home</a></li>
+                <li><a href="../../index.php">Home</a></li>
             </ul>
             <label for="menu" class="menu-bar"><i class="fa fa-bars"></i></label>
         </nav>
@@ -76,7 +88,7 @@ $stmt->close();
                 <h2>Admin</h2>
             </center>
             <br>
-            <a href="index.php"><span class="material-symbols-outlined">home</span><span>Home</span></a>
+            <a href="../../index.php"><span class="material-symbols-outlined">home</span><span>Home</span></a>
             <a href="dashboard.php"><span class="material-icons-outlined">dashboard</span><span>Dashboard</span></a>
             <a href="recipe_mgt.php"><span class="material-symbols-outlined">lunch_dining</span><span>Recipes</span></a>
             <a href="users.php"><span class="material-icons-outlined">people</span><span>Users</span></a>
@@ -93,16 +105,22 @@ $stmt->close();
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Role</th>
+                        <!-- add a created at column -->
+                        <th>Registration Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                   <?php forEach($users as $user) { ?>
+                    <?php foreach ($users as $user) { ?>
                         <tr>
                             <td><?php echo $user['user_id']; ?></td>
                             <!-- both first and lanstname togethe -->
                             <td><?php echo $user['fname'] . ' ' . $user['lname']; ?></td>
                             <td><?php echo $user['email']; ?></td>
+                            <td><?php echo $user['role'] == 1 ? 'Admin' : 'User'; ?></td>
+                            <!-- add a created at column -->
+                            <td><?php echo $user['created_at']; ?></td>
                             <td>
                                 <button class="read read-btn" data-id="<?php echo $user['user_id']; ?>">View</button>
                                 <button class="update update-btn" data-id="<?php echo $user['user_id']; ?>">Update</button>
