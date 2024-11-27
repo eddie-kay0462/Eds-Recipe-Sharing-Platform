@@ -209,7 +209,7 @@ deleteButtons.forEach(button => {
         const userId = button.getAttribute('data-id');
         const userName = button.closest('tr').children[1].textContent;
         
-        const confirmDelete = confirm(`Are you sure you want to delete the user with name ${userName}?`);
+        const confirmDelete = confirm(`Are you really sure you want to delete the user with name ${userName}?`);
         if (!confirmDelete) return;  // If user cancels, do nothing
         
         // Create a form to submit for deletion
