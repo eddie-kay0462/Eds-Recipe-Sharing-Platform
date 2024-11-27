@@ -1,5 +1,5 @@
 <?php
-include '../db/config2.php';
+include '../db/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email']) && isset($_POST['password'])) {
