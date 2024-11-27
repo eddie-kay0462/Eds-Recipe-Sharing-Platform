@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 header('Content-Type: application/json');
-require '../db/config2.php';
+require '../db/config.php';
 session_start();
 
 // Check if user is logged in and has admin privileges
