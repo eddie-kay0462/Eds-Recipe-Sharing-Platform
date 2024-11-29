@@ -4,233 +4,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Management</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #f6f8f9 0%, #e5ebee 100%);
-            font-family: 'Arial', sans-serif;
-        }
-
-        .form-container {
-            background: white;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .form-header {
-            background: linear-gradient(45deg, #3b82f6, #2563eb);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 1rem;
-        }
-
-        .input-group input,
-        .input-group select,
-        .input-group textarea {
-            border: 1px solid #d1d5db;
-            transition: all 0.3s ease;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus,
-        .input-group textarea:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-            outline: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #3b82f6, #2563eb);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .ingredient-row:nth-child(even) {
-            background-color: #f9fafb;
-        }
-
-        .ingredient-row:hover {
-            background-color: #f3f4f6;
-            transition: background-color 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            .form-container {
-                margin: 0 10px;
-                padding: 15px;
-            }
-        }
-    </style>
+    <title>Add New Recipe</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body class="min-h-screen flex items-center justify-center p-4">
-    <div class="container mx-auto">
-        <div class="form-container max-w-4xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
-
-            <div class="form-header">
-                <h1 class="text-3xl font-bold text-white">Recipe Management</h1>
-            </div>
-
-            <form class="p-6 space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Recipe Details Column -->
-                    <div class="space-y-4">
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="name">Food Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg border focus:border-blue-500" placeholder="Enter recipe name" required>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center text-primary">Add New Recipe</h2>
+        <form id="addRecipeForm" method="POST" class="needs-validation" novalidate>
+            <!-- Food Details Section -->
+            <div class="card mb-4 shadow">
+                <div class="card-header bg-primary text-white">
+                    Food Details
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="foodName" class="form-label">Food Name</label>
+                            <input type="text" class="form-control" id="foodName" name="food_name" required>
+                            <div class="invalid-feedback">Please enter a food name.</div>
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="origin">Origin</label>
-                            <input type="text" id="origin" name="origin" class="w-full px-4 py-2 rounded-lg border" placeholder="Recipe origin">
+                        <div class="col-md-6 mb-3">
+                            <label for="foodOrigin" class="form-label">Origin</label>
+                            <input type="text" class="form-control" id="foodOrigin" name="food_origin">
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="type">Food Type</label>
-                            <select id="type" name="type" class="w-full px-4 py-2 rounded-lg border">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="foodType" class="form-label">Food Type</label>
+                            <select class="form-select" id="foodType" name="food_type">
                                 <option value="">Select Food Type</option>
                                 <option value="appetizer">Appetizer</option>
-                                <option value="main-course">Main Course</option>
+                                <option value="main_course">Main Course</option>
                                 <option value="dessert">Dessert</option>
                                 <option value="beverage">Beverage</option>
                             </select>
                         </div>
-
-                        <div class="input-group flex items-center">
-                            <input type="checkbox" id="is_healthy" name="is_healthy" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                            <label for="is_healthy" class="ml-2 text-gray-700 font-semibold">Is Healthy?</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="isHealthy" class="form-label">Is Healthy?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="isHealthy" name="is_healthy" value="1">
+                                <label class="form-check-label" for="isHealthy">
+                                    Healthy Option
+                                </label>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Cooking Details Column -->
-                    <div class="space-y-4">
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="preparation_time">Preparation Time (mins)</label>
-                            <input type="number" id="preparation_time" name="preparation_time" class="w-full px-4 py-2 rounded-lg border" placeholder="Preparation time">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="prepTime" class="form-label">Preparation Time (mins)</label>
+                            <input type="number" class="form-control" id="prepTime" name="preparation_time" min="0">
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="cooking_time">Cooking Time (mins)</label>
-                            <input type="number" id="cooking_time" name="cooking_time" class="w-full px-4 py-2 rounded-lg border" placeholder="Cooking time">
+                        <div class="col-md-4 mb-3">
+                            <label for="cookTime" class="form-label">Cooking Time (mins)</label>
+                            <input type="number" class="form-control" id="cookTime" name="cooking_time" min="0">
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="calories_per_serving">Calories per Serving</label>
-                            <input type="number" id="calories_per_serving" name="calories_per_serving" class="w-full px-4 py-2 rounded-lg border" placeholder="Calories">
+                        <div class="col-md-4 mb-3">
+                            <label for="servingSize" class="form-label">Serving Size</label>
+                            <input type="number" class="form-control" id="servingSize" name="serving_size" min="1">
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="caloriesPerServing" class="form-label">Calories per Serving</label>
+                            <input type="number" class="form-control" id="caloriesPerServing" name="calories_per_serving" min="0">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="foodImageURL" class="form-label">Food Image URL</label>
+                            <input type="url" class="form-control" id="foodImageURL" name="image_url" placeholder="Enter image URL" required>
+                            <div class="invalid-feedback">Please enter a valid image URL.</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foodDescription" class="form-label">Food Description</label>
+                        <textarea class="form-control" id="foodDescription" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foodInstructions" class="form-label">Cooking Instructions</label>
+                        <textarea class="form-control" id="foodInstructions" name="instructions" rows="4" required></textarea>
                     </div>
                 </div>
+            </div>
 
-                <!-- Description and Instructions -->
-                <div class="grid grid-cols-1 gap-6">
-                    <div class="input-group">
-                        <label class="block text-gray-700 font-semibold mb-2" for="description">Food Description</label>
-                        <textarea id="description" name="description" rows="4" class="w-full px-4 py-2 rounded-lg border" placeholder="Describe your recipe..."></textarea>
-                    </div>
-
-                    <div class="input-group">
-                        <label class="block text-gray-700 font-semibold mb-2" for="instructions">Cooking Instructions</label>
-                        <textarea id="instructions" name="instructions" rows="4" class="w-full px-4 py-2 rounded-lg border" placeholder="Step-by-step cooking instructions..."></textarea>
-                    </div>
+            <!-- Ingredients Section -->
+            <div class="card mb-4 shadow">
+                <div class="card-header bg-primary text-white">
+                    Ingredients
                 </div>
-
-                <!-- Recipe Ingredients Section -->
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Recipe Ingredients</h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4">
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="ingredient">Ingredient Name</label>
-                            <input type="text" id="ingredient" name="ingredient" class="w-full px-4 py-2 rounded-lg border" placeholder="Enter ingredient name" required>
+                <div class="card-body" id="ingredientsContainer">
+                    <div class="ingredient-row row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Ingredient Name</label>
+                            <input type="text" class="form-control" name="ingredient_name[]" required>
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="quantity">Quantity</label>
-                            <input type="number" id="quantity" name="quantity" class="w-full px-4 py-2 rounded-lg border" placeholder="Enter quantity" required>
+                        <div class="col-md-2">
+                            <label class="form-label">Quantity</label>
+                            <input type="number" class="form-control" name="ingredient_quantity[]" min="0" step="0.1" required>
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="unit">Unit</label>
-                            <input type="text" id="unit" name="unit" class="w-full px-4 py-2 rounded-lg border" placeholder="Enter unit (e.g., cups, grams)" required>
+                        <div class="col-md-2">
+                            <label class="form-label">Alergen info</label>
+                            <input type="number" class="form-control" name="alergen_info[]" min="0" step="0.1" required>
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="nutritional_value">Nutritional Value</label>
-                            <input type="text" id="nutritional_value" name="nutritional_value" class="w-full px-4 py-2 rounded-lg border" placeholder="Nutritional information (e.g., 200 kcal)">
+                        <div class="col-md-2">
+                            <label class="form-label">Nutritional value</label>
+                            <input type="number" class="form-control" name="nutritional_value[]" min="0" step="0.1" required>
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="allergen_info">Allergen Info</label>
-                            <input type="text" id="allergen_info" name="allergen_info" class="w-full px-4 py-2 rounded-lg border" placeholder="List allergens (e.g., nuts, gluten)">
+                        <div class="col-md-2">
+                            <label class="form-label">Shelf life</label>
+                            <input type="number" class="form-control" name="shelf_life[]" min="0" step="0.1" required>
                         </div>
-
-                        <div class="input-group">
-                            <label class="block text-gray-700 font-semibold mb-2" for="shelf_life">Shelf Life</label>
-                            <input type="text" id="shelf_life" name="shelf_life" class="w-full px-4 py-2 rounded-lg border" placeholder="Shelf life (e.g., 3 days)">
+                        <div class="col-md-2">
+                            <label class="form-label">Unit</label>
+                            <select class="form-select" name="ingredient_unit[]">
+                                <option value="g">Grams</option>
+                                <option value="kg">Kilograms</option>
+                                <option value="ml">Milliliters</option>
+                                <option value="l">Liters</option>
+                                <option value="cup">Cups</option>
+                                <option value="tbsp">Tablespoons</option>
+                                <option value="tsp">Teaspoons</option>
+                                <option value="piece">Pieces</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Optional</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="ingredient_optional[]" value="1">
+                                <label class="form-check-label">Optional Ingredient</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1 d-flex align-items-end">
+                            <button type="button" class="btn btn-danger remove-ingredient" style="display:none;">Remove</button>
                         </div>
                     </div>
-
-                    <div class="flex justify-end">
-                        <button type="button" class="btn-primary text-white px-6 py-2 rounded-full">Add Ingredient</button>
-                    </div>
-
-                    <!-- Ingredients List (Dynamic) -->
-                    <div id="ingredient-list" class="mt-4"></div>
+                    <button type="button" id="addIngredientBtn" class="btn btn-secondary mt-2">Add Another Ingredient</button>
                 </div>
+            </div>
 
-                <div class="flex justify-center mt-6">
-                    <button type="submit" class="btn-primary text-white px-6 py-3 rounded-full">Save Recipe</button>
-                </div>
-            </form>
-
-        </div>
+            <button type="submit" class="btn btn-success w-100">Add Recipe</button>
+        </form>
     </div>
 
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        // JavaScript to handle dynamic ingredient rows
-        document.querySelector('.btn-primary').addEventListener('click', function() {
-            const ingredientName = document.getElementById('ingredient').value;
-            const quantity = document.getElementById('quantity').value;
-            const unit = document.getElementById('unit').value;
-            const nutritionalValue = document.getElementById('nutritional_value').value;
-            const allergenInfo = document.getElementById('allergen_info').value;
-            const shelfLife = document.getElementById('shelf_life').value;
+        // Dynamically add ingredients
+        document.getElementById('addIngredientBtn').addEventListener('click', function() {
+            const container = document.getElementById('ingredientsContainer');
+            const newRow = container.querySelector('.ingredient-row').cloneNode(true);
 
-            if (ingredientName && quantity && unit) {
-                const ingredientList = document.getElementById('ingredient-list');
+            newRow.querySelectorAll('input').forEach(input => {
+                input.value = '';
+                input.checked = false;
+            });
 
-                const ingredientRow = document.createElement('div');
-                ingredientRow.classList.add('ingredient-row', 'p-4', 'flex', 'justify-between', 'items-center', 'rounded-lg', 'border-b');
+            newRow.querySelector('.remove-ingredient').style.display = 'block';
+            newRow.querySelector('.remove-ingredient').addEventListener('click', function() {
+                container.removeChild(newRow);
+            });
 
-                ingredientRow.innerHTML = `
-                    <span class="font-semibold">${ingredientName}</span> |
-                    <span>${quantity} ${unit}</span> |
-                    <span>${nutritionalValue ? nutritionalValue : 'N/A'}</span> |
-                    <span>${allergenInfo ? allergenInfo : 'None'}</span> |
-                    <span>${shelfLife ? shelfLife : 'N/A'}</span>
-                `;
-                ingredientList.appendChild(ingredientRow);
-
-                // Clear input fields
-                document.getElementById('ingredient').value = '';
-                document.getElementById('quantity').value = '';
-                document.getElementById('unit').value = '';
-                document.getElementById('nutritional_value').value = '';
-                document.getElementById('allergen_info').value = '';
-                document.getElementById('shelf_life').value = '';
-            }
+            container.appendChild(newRow);
         });
+
+        // Form validation
+        (function() {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })();
     </script>
 </body>
 
