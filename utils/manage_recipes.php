@@ -15,9 +15,7 @@
         <form id="addRecipeForm" method="POST" class="needs-validation" novalidate>
             <!-- Food Details Section -->
             <div class="card mb-4 shadow">
-                <div class="card-header bg-primary text-white">
-                    Food Details
-                </div>
+                <div class="card-header bg-primary text-white">Food Details</div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -45,9 +43,7 @@
                             <label for="isHealthy" class="form-label">Is Healthy?</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="isHealthy" name="is_healthy" value="1">
-                                <label class="form-check-label" for="isHealthy">
-                                    Healthy Option
-                                </label>
+                                <label class="form-check-label" for="isHealthy">Healthy Option</label>
                             </div>
                         </div>
                     </div>
@@ -72,7 +68,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="foodImageURL" class="form-label">Food Image URL</label>
-                            <input type="url" class="form-control" id="foodImageURL" name="image_url" placeholder="Enter image URL" required>
+                            <input type="url" class="form-control" id="foodImageURL" name="image_url" required>
                             <div class="invalid-feedback">Please enter a valid image URL.</div>
                         </div>
                     </div>
@@ -89,12 +85,10 @@
 
             <!-- Ingredients Section -->
             <div class="card mb-4 shadow">
-                <div class="card-header bg-primary text-white">
-                    Ingredients
-                </div>
+                <div class="card-header bg-primary text-white">Ingredients</div>
                 <div class="card-body" id="ingredientsContainer">
                     <div class="ingredient-row row mb-3">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label class="form-label">Ingredient Name</label>
                             <input type="text" class="form-control" name="ingredient_name[]" required>
                         </div>
@@ -103,29 +97,16 @@
                             <input type="number" class="form-control" name="ingredient_quantity[]" min="0" step="0.1" required>
                         </div>
                         <div class="col-md-2">
-                            <label class="form-label">Alergen info</label>
-                            <input type="number" class="form-control" name="alergen_info[]" min="0" step="0.1" required>
+                            <label class="form-label">Allergen Info</label>
+                            <input type="text" class="form-control" name="alergen_info[]" required>
                         </div>
                         <div class="col-md-2">
-                            <label class="form-label">Nutritional value</label>
-                            <input type="number" class="form-control" name="nutritional_value[]" min="0" step="0.1" required>
+                            <label class="form-label">Nutritional Value</label>
+                            <input type="text" class="form-control" name="nutritional_value[]" required>
                         </div>
                         <div class="col-md-2">
-                            <label class="form-label">Shelf life</label>
-                            <input type="number" class="form-control" name="shelf_life[]" min="0" step="0.1" required>
-                        </div>
-                        <div class="col-md-2">
-                            <label class="form-label">Unit</label>
-                            <select class="form-select" name="ingredient_unit[]">
-                                <option value="g">Grams</option>
-                                <option value="kg">Kilograms</option>
-                                <option value="ml">Milliliters</option>
-                                <option value="l">Liters</option>
-                                <option value="cup">Cups</option>
-                                <option value="tbsp">Tablespoons</option>
-                                <option value="tsp">Teaspoons</option>
-                                <option value="piece">Pieces</option>
-                            </select>
+                            <label class="form-label">Shelf Life</label>
+                            <input type="text" class="form-control" name="shelf_life[]" required>
                         </div>
                         <div class="col-md-3">
                             <label class="form-label">Optional</label>
@@ -135,11 +116,11 @@
                             </div>
                         </div>
                         <div class="col-md-1 d-flex align-items-end">
-                            <button type="button" class="btn btn-danger remove-ingredient" style="display:none;">Remove</button>
+                            <button type="button" class="btn btn-danger remove-ingredient">Remove</button>
                         </div>
                     </div>
-                    <button type="button" id="addIngredientBtn" class="btn btn-secondary mt-2">Add Another Ingredient</button>
                 </div>
+                <button type="button" id="addIngredientBtn" class="btn btn-secondary mt-2">Add Another Ingredient</button>
             </div>
 
             <button type="submit" class="btn btn-success w-100">Add Recipe</button>
@@ -154,18 +135,18 @@
         document.getElementById('addIngredientBtn').addEventListener('click', function() {
             const container = document.getElementById('ingredientsContainer');
             const newRow = container.querySelector('.ingredient-row').cloneNode(true);
-
-            newRow.querySelectorAll('input').forEach(input => {
-                input.value = '';
-                input.checked = false;
-            });
-
-            newRow.querySelector('.remove-ingredient').style.display = 'block';
+            newRow.querySelectorAll('input').forEach(input => input.value = '');
             newRow.querySelector('.remove-ingredient').addEventListener('click', function() {
-                container.removeChild(newRow);
+                newRow.remove();
             });
-
             container.appendChild(newRow);
+        });
+
+        // Remove ingredient row
+        document.querySelectorAll('.remove-ingredient').forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.ingredient-row').remove();
+            });
         });
 
         // Form validation
@@ -175,11 +156,11 @@
             Array.from(forms).forEach(function(form) {
                 form.addEventListener('submit', function(event) {
                     if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
+                        event.preventDefault();
+                        event.stopPropagation();
                     }
-                    form.classList.add('was-validated')
-                }, false)
+                    form.classList.add('was-validated');
+                }, false);
             })
         })();
     </script>
