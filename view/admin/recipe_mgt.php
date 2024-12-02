@@ -1,37 +1,28 @@
 <?php
-
-// Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+//Session start
 session_start();
-require '../../db/config.php';
 
+// Include the database connection file
+include('../../db/config.php');
 
 // Check if user is logged in and has admin privileges
 if (!isset($_SESSION['user']) || $_SESSION['role'] != 1) {
     header('Location: ../../index.php');
     exit();
 }
-
-//FETCH THE RECIPES FROM THE DATABASE
-$stmt = $conn->prepare('SELECT * FROM recipes');
+//get all users 
+$stmt = $conn->prepare('SELECT * FROM users');
 $stmt->execute();
-$recipes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-//if delete button is clicked
-if (isset($_POST['delete'])) {
-    $id = $_POST['id'];
-    $stmt = $conn->prepare('DELETE FROM recipes WHERE recipe_id = ?');
-    $stmt->bind_param('i', $id);
-    $stmt->execute();
-    header('Location: recipe_mgt.php');
-    exit();
-}
-
-
+$users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+// select all recipes
+$stmt = $conn->prepare('SELECT * FROM foods');
+$stmt->execute();
+$foods = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
 ?>
-
 
 
 
@@ -88,111 +79,55 @@ if (isset($_POST['delete'])) {
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>Author</th>
+                            <th>AuthorID</th>
+                            <th>AuthorName</th>
                             <th>Date Created</th>
                             <th>Actions</th>
-                             
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Chocolate Cake</td>
-                            <td>John Doe</td>
-                            <td>2024-09-01</td>
-                            <td>
-                                <button class="read-btn">VIEW MORE</button>
-                                <button class="update-btn">Update</button>
-                                <button class="delete-btn">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Spaghetti Bolognese</td>
-                            <td>Jane Smith</td>
-                            <td>2024-09-10</td>
-                            <td>
-                                <button class="read-btn">VIEW MORE</button>
-                                <button class="update-btn">Update</button>
-                                <button class="delete-btn">Delete</button>
-                            </td>
-                        </tr>
+                        <?php foreach ($foods as $food) { ?>
+                            <tr>
+                                <td><?php echo $food['food_id']; ?></td>
+                                <td><?php echo $food['name']; ?></td>
+                                <td><?php echo $food['created_by']; ?></td>
+                                <!-- get thefood author first name and last name from the users table -->
+                                <td>
+                                    <?php
+                                    foreach ($users as $user) {
+                                        if ($user['user_id'] == $food['created_by']) {
+                                            echo $user['fname'] . ' ' . $user['lname'];
+                                        }
+                                    }
+                                    ?>
+                                </td>
+
+                                <td><?php echo $food['created_at']; ?></td>
+                                <td>
+                                    <button class="view-recipe read-btn" data-id="<?php echo $food['food_id']; ?>">View</button>
+                                    <button class="edit-recipe update-btn" data-id="<?php echo $food['food_id']; ?>">Edit</button>
+                                    <button class="delete-recipe delete-btn" data-id="<?php echo $food['food_id']; ?>">Delete</button>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
-            <button id="add-recipe">Add New Recipe</button>
+            <button id="add-recipe"><a href="../../utils/manage_recipes.php">ADD a new Recipe</a></button>
         </main>
 
-        <!-- recipe form for adding new recipe -->
-        <div id="recipeModal" class="modalAddRecipe">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form id="recipeForm">
-                    <label for="title">Recipe Title:</label>
-                    <input type="text" id="title" name="title" required>
-                    <p id="titleError" class="error"></p>
 
-                    <label for="ingredients">Ingredients:</label>
-                    <textarea id="ingredients" name="ingredients" required></textarea>
-                    <p id="ingredientsError" class="error"></p>
 
-                    <label for="origin">Origin:</label>
-                    <input type="text" id="origin" name="origin">
-                    <span id="originError" class="error"></p>
-
-                        <label for="nutritionalValue">Nutritional Value:</label>
-                        <textarea id="nutritionalValue" name="nutritionalValue"></textarea>
-                        <p id="nutritionalValueError" class="error"></p>
-
-                        <label for="allergenInfo">Allergen Information:</label>
-                        <input type="text" id="allergenInfo" name="allergenInfo">
-                        <p id="allergenInfoError" class="error"></p>
-
-                        <label for="shelfLife">Shelf Life:</label>
-                        <input type="text" id="shelfLife" name="shelfLife">
-                        <p id="shelfLifeError" class="error"></p>
-
-                        <label for="image">Recipe Image URL:</label>
-                        <input type="url" id="image" name="image">
-                        <p id="imageError" class="error"></p>
-
-                        <label for="prepTime">Preparation Time (minutes):</label>
-                        <input type="number" id="prepTime" name="prepTime" required>
-                        <p id="prepTimeError" class="error"></p>
-
-                        <label for="cookTime">Cooking Time (minutes):</label>
-                        <input type="number" id="cookTime" name="cookTime" required>
-                        <p id="cookTimeError" class="error"></p>
-
-                        <label for="servingSize">Serving Size:</label>
-                        <input type="text" id="servingSize" name="servingSize" required>
-                        <p id="servingSizeError" class="error"></p>
-
-                        <label for="description">Food Description:</label>
-                        <textarea id="description" name="description" required></textarea>
-                        <p id="descriptionError" class="error"></p>
-
-                        <label for="calories">Calories per Serving:</label>
-                        <input type="number" id="calories" name="calories">
-                        <p id="caloriesError" class="error"></p>
-
-                        <label for="foodOrigin">Food Origin:</label>
-                        <input type="text" id="foodOrigin" name="foodOrigin">
-                        <p id="foodOriginError" class="error"></p>
-
-                        <label for="instructions">Instructions:</label>
-                        <textarea id="instructions" name="instructions" required></textarea>
-                        <p id="instructionsError" class="error"></p>
-
-                        <button type="submit">Add Recipe</button>
-                </form>
-            </div>
-        </div>
-        <!-- Modal for viewing recipe details -->
+        <!-- modal for viewing recipe details, with sections food_id, name, origin, type, is_healthy, instructions, description, prepation_time, cooking_time, serving_size, calories_per_serving, image_url, created_by, created_at -->
         <div class="modal" id="recipe-modal">
-            <h3>Recipe Details</h3>
-            <p id="recipe-details"></p>
-            <button id="close-recipe-modal">Close</button>
+            <div class="modal-content">
+                <!-- <span class="close">&times;</span> -->
+                <h2>Recipe Details</h2>
+                <div class="recipe-details">
+                </div>
+                <button id="close">Close</button>
+            </div>
         </div>
     </div>
     <script src="../../assets/js/recipe_mgt.js"></script>
