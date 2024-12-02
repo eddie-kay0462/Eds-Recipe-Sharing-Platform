@@ -8,49 +8,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/signup.css">
     <style>
-        /* Additional CSS to style the home icon and text */
-        .home-link {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: #333;
+        /* Navbar styles */
+        .navbar {
+            background-color: #fff;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
             text-decoration: none;
+            color: #333;
+        }
+
+        .nav-links {
             display: flex;
             align-items: center;
-            transition: color 0.3s ease;
+            gap: 30px;
         }
 
-        .home-link:hover {
-            color: #838A59;
-            /* Change color on hover */
-        }
-
-        .home-link i {
-            font-size: 1.7rem;
-            margin-right: 10px;
-            /* Space between icon and text */
-        }
-
-        .home-link span {
-            font-size: 16px;
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
             font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: #838A59;
+            background-color: rgba(131, 138, 89, 0.1);
         }
 
         .signup {
             position: relative;
-            /* Ensure positioning context for absolute icon */
+            margin-top: 100px; /* Increased to account for fixed navbar */
+            padding: 20px;
         }
+
+        /* Remove the home-link styles since we have a proper navbar now */
     </style>
 </head>
 
 <body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.php">R3seaPea</a>
+        </div>
+        <div class="nav-links">
+            <a href="../index.php">Home</a>
+            <a href="explore_recipes.php">Explore</a>
+            <a href="login.php">Login</a>
+            <a href="register.php">Sign Up</a>
+        </div>
+    </nav>
 
     <!-- signup form -->
     <div class="signup">
-        <a href="../index.php" class="home-link" title="Go to Home">
-            <i class="fas fa-home"></i>
-            <span>Back to Home</span>
-        </a>
         <h1>Sign Up</h1>
         <!-- Display error message if signup fails and clear the message after 3 seconds -->
         <?php if (isset($_GET['error'])) { ?>
@@ -82,10 +108,8 @@
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password"><br>
             <span id="confirmPasswordError" class="error"></span><br>
             <input type="submit" class="button" name="register" value="Register" style="width:100%;">
-            <!-- <a type="submit" href="" name="signup" class="button">Sign Up</a> -->
             <a href="login.php" class="login">Already have an account?</a>
         </form>
-
     </div>
 
     <script src="../assets/js/signup.js"></script>
