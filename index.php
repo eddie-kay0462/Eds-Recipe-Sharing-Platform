@@ -36,7 +36,7 @@
     </header>
     <div class="content">
         <h1>Welcome to <i>R3seaPea!!!</i></h1>
-        <p>Welcome to the ultimate hub for food lovers! Discover, share, and create delicious recipes from around the world. Let's cook up something amazing together!</p>
+        <p>Welcome to the ultimate hub for food lovers!!!! Discover, share, and create delicious recipes from around the world. Let's cook up something amazing together!</p>
         <a href="./view/login.php">Get Started</a>
     </div>
 
