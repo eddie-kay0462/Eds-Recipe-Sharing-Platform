@@ -2,7 +2,7 @@
 // Start session
 session_start();
 // Include database connection
-include '../db/config2.php';
+include '../db/config.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -91,6 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         error_log($e->getMessage());
     }
 }
+
+// Close the connection
+$conn->close();
 ?>
 
 <!DOCTYPE html>
