@@ -6,7 +6,7 @@ body{
     margin: 0;             /* Remove default margin */ 
     font-family: 'Courier New', Courier, monospace;
     /* background: rgba(0, 0, 0, 0.7) url() no-repeat center center fixed; */
-    background: rgba(0, 0, 0, 0.9) url(../images/recipe=.jpg) no-repeat center center fixed;
+    background: rgba(0, 0, 0, 0.9) url(../images/recipe.jpg) no-repeat center center fixed;
     background-size: cover;
     background-blend-mode: darken;
     /* darken */
